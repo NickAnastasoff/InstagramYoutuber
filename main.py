@@ -1,6 +1,6 @@
 from scrape_videos import scrapeVideos
 from make_compilation import makeCompilation
-from Youtube import upload
+from youtube import upload
 import time
 import datetime
 import os
@@ -10,11 +10,8 @@ from googleapiclient.discovery import build #pip install google-api-python-clien
 from google_auth_oauthlib.flow import InstalledAppFlow #pip install google-auth-oauthlib
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-from Constants import username, password
+from constants import IG_USERNAME, IG_PASSWORD
 
-# USER VARIABLES FILL THESE OUT (fill out username and password in config.py)
-IG_USERNAME = username
-IG_PASSWORD = password
 print("user and pass:")
 print(IG_USERNAME)
 print(IG_PASSWORD)
@@ -48,7 +45,7 @@ def routine():
     print("Scraped Videos!")
     
     description = "Enjoy the memes! :) \n\n" \
-    "like and subscribe to @username for more \n\n" \
+    f"like and subscribe to @{IG_USERNAME} for more \n\n" \
 
     # Step 2: Make Compilation
     print("Making Compilation...")

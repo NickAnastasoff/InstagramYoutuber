@@ -1,7 +1,7 @@
 import datetime
 import requests
 from instagrapi import Client
-from Constants import memePages, username, password
+from constants import memePages, IG_USERNAME, IG_PASSWORD
 
 def get_following(username, password):
     cl = Client()
@@ -20,7 +20,7 @@ def scrapeVideos(username = "",
                  accounts = []):
     cl = Client()
     cl.login(username, password)
-    user_id = cl.user_id_from_username(usernamegoes here)
+    user_id = cl.user_id_from_username(IG_USERNAME)
     followers = cl.user_followers(user_id, 37)
     usernames = []
     for follower_id in followers.keys():
@@ -43,7 +43,7 @@ def scrapeVideos(username = "",
                 download_media(media.video_url, video_filename)
 
 if __name__ == "__main__":
-    scrapeVideos(username = username,
-                 password = password,
+    scrapeVideos(username = IG_USERNAME,
+                 password = IG_PASSWORD,
                  output_folder = "Memes",
                  accounts = memePages)

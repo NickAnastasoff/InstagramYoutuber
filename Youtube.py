@@ -1,13 +1,14 @@
 import datetime
 from googleapiclient.http import MediaFileUpload
 from google_apis import create_service
+from constants import clientFile
 
 def upload(video_file, title, videoDescription):
         API_NAME = 'youtube'
         API_VERSION = 'v3'
         SCOPES = ['https://www.googleapis.com/auth/youtube']
         # SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
-        service = create_service(clientfilejsom goes here, API_NAME, API_VERSION, SCOPES)
+        service = create_service(clientFile, API_NAME, API_VERSION, SCOPES)
 
         upload_time = (datetime.datetime.now() + datetime.timedelta(days=0)).isoformat() + '.000Z'
         request_body = {
